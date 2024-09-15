@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        button {
+            border: 1px solid #000;
+        }
+    </style>
 </head>
 <script>
+    var selected = document.querySelectorAll("#button");
     function myclick() {
-        alert("클릭했니?");
+        selected[0].style.border = "1px solid #fff";
     }
 </script>
 <body>
