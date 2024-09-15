@@ -352,13 +352,10 @@
     }
 
     function test() {
-        for(const i = 0; i < errorfeedback.length; i++) {
-            var contain = errorfeedback.item(i);
-            contain.style.display = "block";
-        }
+        errorfeedback[0].style.display = "block";
     }
 
-    document.getElementById("countinuebtn").addEventListener("click", test());
+    document.getElementById("mybtn").addEventListener("click", test);
 </script>
 <body>
     <div class="container">
@@ -537,7 +534,7 @@
                             </div>
                         </div>
                         <hr class="mtb15">
-                        <button type="submit" id="countinuebtn" nsubmit="return checkvalid()" class="btn btn-continue">Countinue to checkout</button>
+                        <button type="submit" id="mybtn" class="btn btn-continue">Countinue to checkout</button>
                     </form>
                 </div>
             </div>
