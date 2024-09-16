@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic</title>
+    <style>
+        .contain{
+            max-width: 960px;
+            padding-right: calc(1.5rem * .5);
+            padding-left: calc(1.5rem * .5);
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .top{
+            text-align: center;
+        }
+        .col2{
+            flex: 0 0 auto;
+            width: 100%;
+            display: block;
+        }
+        .topincs{
+            display: inline-block;
+            position: relative;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .375rem;
+            width: 57%;
+        }
+        .btnwrap{
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            border: 1px solid #6c757d;
+            border-radius: 0.375rem;
+            background-color: #6c757d;
+            text-transform: none;
+            cursor: pointer;
+        }
+        .btnwrap:hover{
+            border: 1px solid #373b3f;
+            background-color: #373b3f;
+        }
+        .delete{
+            border: #dc3545;
+            background-color: #dc3545;
+        }
+        .delete:hover{
+            border: #801d27;
+            background-color: #801d27;            
+        }
+    </style>
+</head>
+<script>
+    function addunordered() {
+        const string = document.getElementById("words").value;
+        const arr = string.split(",");
+        const direct = document.getElementById("unordered");
+        for(var i = 0; i < arr.length; i++){
+            if(arr != ""){
+                var list = document.createElement("li");
+                list.textContent = arr[i];
+                direct.appendChild(list);
+            }
+        }
+    }
+
+    function addordered() {
+        const string = document.getElementById("words").value;
+        const arr = string.split(",");
+        const direct = document.getElementById("ordered");
+        for(var i = 0; i < arr.length; i++){
+            if(arr != ""){
+                var list = document.createElement("li");
+                list.textContent = arr[i];
+                direct.appendChild(list);
+            }
+        }
+    }
+
+    function deleteall() {
+        const listitem = [document.getElementById("ordered"), document.getElementById("unordered")];
+        listitem[0].innerHTML='';
+        listitem[1].innerHTML='';
+    }
+</script>
+<body>
+    <div class="contain">
+        <div class="top">
+            <h1>Dynamic Web Page</h1>
+            <div class="col2">
+                <input id="words" type="text" class="topincs">
+                <button type="button" class="btnwrap" id="oradd" onclick="addordered()">Ordered Add [+]</button>
+                <button type="button" class="btnwrap" id="unoradd" onclick="addunordered()">Unordered Add [+]</button>
+                <button type="button" class="btnwrap delete" onclick="deleteall()">Delete</button>
+            </div>
+            <hr>
+        </div>
+        <div>
+            <h2>Ordered</h2>
+            <ol id="ordered">
+            </ol>
+            <hr>
+            <h2>Unordered</h2>
+            <ul id="unordered">
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

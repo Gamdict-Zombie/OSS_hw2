@@ -327,35 +327,65 @@
             font-size: .875em;
             color: #dc3545;
         }
-        .changecolor input:invalid{
-            border-color: #dc3545;
-        }
     </style>
 </head>
 <script>
-    var errorfeedback = document.querySelectorAll(".invalid-feedback");
-    const inputv = [
-        document.getElementById("firstname"),
-        document.getElementById("lastname"),
-        document.getElementById("username")
-    ]
-    function checkvalid() {
-        var somerr = true;
-        for(const i = 0; i < inputv.length; i++) {
-            if(errorfeedback[i] == "") {
-                const message = errorfeedback.item(i);
-                message.style.display = "block";
-                somerr = false;
-            }
-        }
-        return somerr;
+    function displayselect(index, selected) {
+        const feedback = [
+            document.getElementById("firstnamefeed"),
+            document.getElementById("lastnamefeed"),
+            document.getElementById("usernamefeed"),
+            document.getElementById("emailfeed"),
+            document.getElementById("addressfeed"),
+            document.getElementById("zipfeed"),
+            document.getElementById("ccnamefeed"),
+            document.getElementById("ccnumberfeed"),
+            document.getElementById("ccexpirationfeed"),
+            document.getElementById("cccvfeed"),
+            document.getElementById("countryfeed"),
+            document.getElementById("statefeed")
+        ]
+        if(selected == 1)
+        feedback[index].style.display = "block";
+        else
+        feedback[index].style.display = "none";
+    }
+
+    function seterror(index) {
+        event.target.style.borderColor = "#dc3545";
+        displayselect(index, 1);
     }
 
     function test() {
-        errorfeedback[0].style.display = "block";
+        const element = [
+            document.getElementById("firstname"),
+            document.getElementById("lastname"),
+            document.getElementById("username"),
+            document.getElementById("email"),
+            document.getElementById("address"),
+            document.getElementById("zip"),
+            document.getElementById("cc-name"),
+            document.getElementById("cc-number"),
+            document.getElementById("cc-expiration"),
+            document.getElementById("cc-cv"),
+            document.getElementById("country"),
+            document.getElementById("state")
+        ]
+        for(var i = 0; i < element.length; i++){
+            if(element[i].value==""&&i!=3) {
+                displayselect(i, 1);
+                element[i].style.borderColor = "#dc3545";
+            }
+            else if(i==3&&element[i].value!="") {
+                displayselect(i, 1);
+                element[i].style.borderColor = "#dc3545";
+            }
+            else{
+                displayselect(i, 0);
+                element[i].style.borderColor = "#ced4da";
+            }
+        }
     }
-
-    document.getElementById("mybtn").addEventListener("click", test);
 </script>
 <body>
     <div class="container">
@@ -416,24 +446,24 @@
                 </div>
                 <div class="col row2">
                     <h4 class="mb0">Billing address</h4>
-                    <form name="form1" novalidate>
+                    <form id="form1">
                         <div class="row m-1">
                             <div class="row2 col2">
                                 <label for = "firstname" class="formlabel">First name</label>
                                 <input type = "text" class="form-control" id = "firstname" name="firstname" placeholder value required>
-                                <div class="invalid-feedback">Valid first name is required.</div>
+                                <div id="firstnamefeed" class="invalid-feedback">Valid first name is required.</div>
                             </div>
                             <div class="row2 col2">
                                 <label for = "lastname" class="formlabel">Last name</label>
                                 <input type = "text" class="form-control" id = "lastname" name="lastname" placeholder value required>
-                                <div class="invalid-feedback">Valid last name is required.</div>
+                                <div id="lastnamefeed" class="invalid-feedback">Valid last name is required.</div>
                             </div>
                             <div class="row2 col100">
                                 <label for = "username" class="formlabel">User name</label>
                                 <div class="input-group">
                                     <span class="input-group-text form-primary">@</span>
                                     <input type = "text" class="form-control formside btn-secondary" id = "username" placeholder="User name" required>
-                                    <div class="invalid-feedback">Your username is required.</div>
+                                    <div id="usernamefeed" class="invalid-feedback">Your username is required.</div>
                                 </div>
                             </div>
                             <div class="row2 col100">
@@ -442,12 +472,12 @@
                                     <span class="textcolormuted">(Optional)</span>
                                 </label>
                                 <input type = "email" class="form-control" id = "email" placeholder="you@example.com">
-                                <!-- <div>Please enter a valid email address for shipping updates.</div> -->
+                                <div id="emailfeed" class="invalid-feedback">Please enter a valid email address for shipping updates.</div>
                             </div>
                             <div class="row2 col100">
                                 <label for = "address" class="formlabel">Address</label>
                                 <input type = "text" class="form-control" id = "address" placeholder="1234 Main St" required>
-                                <!-- <div>Please enter your shipping address.</div> -->
+                                <div id="addressfeed" class="invalid-feedback">Please enter your shipping address.</div>
                             </div>
                             <div class="row2 col100">
                                 <label for = "address2" class="formlabel">
@@ -459,23 +489,23 @@
                             <div class="row2 col42">
                                 <label for = "country" class="formlabel">Country</label>
                                 <select class="form-select" id = "country" required>
-                                    <option value>Choose...</option>
-                                    <option>South Korea</option>
+                                    <option value="">Choose...</option>
+                                    <option value="SouthKorea">South Korea</option>
                                 </select>
-                                <!-- <div>Please select a vaild country</div> -->
+                                <div id="countryfeed" class="invalid-feedback">Please select a vaild country</div>
                             </div>
                             <div class="row2 flexw">
                                 <label for = "state" class="formlabel">State</label>
                                 <select class="form-select" id = "state">
-                                    <option value>Choose...</option>
-                                    <option>Gyeongbuk</option>
+                                    <option value="">Choose...</option>
+                                    <option value="Gyeongbuk">Gyeongbuk</option>
                                 </select>
-                                <!-- <div>Please provide a valid state.</div> -->
+                                <div id="statefeed" class="invalid-feedback">Please provide a valid state.</div>
                             </div>
                             <div class="row2 col25">
                                 <label for = "zip" class="formlabel">Zip</label>
                                 <input type = "text" class="form-control" id = "zip" placeholder required>
-                                <!-- <div>Zip code required.</div> -->
+                                <div id="zipfeed" class="invalid-feedback">Zip code required.</div>
                             </div>
                             <div class="row2 col100">
                                 <label for="request" class="formlabel">
@@ -515,26 +545,26 @@
                                 <label for="cc-name" class="formlabel">Name on card</label>
                                 <input type="text" class="form-control" id="cc-name" placeholder required>
                                 <small class="textcolormuted">Full name as displayed on card</small>
-                                <!-- <div>Name on card is required</div> -->
+                                <div id="ccnamefeed" class="invalid-feedback">Name on card is required</div>
                             </div>
                             <div class="row2 col2">
                                 <label for="cc-number" class="formlabel">Credit card number</label>
                                 <input type="text" class="form-control" id="cc-number" placeholder required>
-                                <!-- <div>Credit card number is required</div> -->
+                                <div id="ccnumberfeed" class="invalid-feedback">Credit card number is required</div>
                             </div>
                             <div class="row2 col25">
                                 <label for="cc-expiration" class="formlabel">Expiration</label>
                                 <input type="text" class="form-control" id="cc-expiration" placeholder required>
-                                <!-- <div>Expiration date required</div> -->
+                                <div id="ccexpirationfeed" class="invalid-feedback">Expiration date required</div>
                             </div>
                             <div class="row2 col25">
                                 <label for="cc-cv" class="formlabel">CVV</label>
                                 <input type="text" class="form-control" id="cc-cv" placeholder required>
-                                <!-- <div>Security code required</div> -->
+                                <div id="cccvfeed" class="invalid-feedback">Security code required</div>
                             </div>
                         </div>
                         <hr class="mtb15">
-                        <button type="submit" id="mybtn" class="btn btn-continue" onsubmit="test()">Countinue to checkout</button>
+                        <button type="submit" id="mybtn" class="btn btn-continue" onclick='test()'>Countinue to checkout</button>
                     </form>
                 </div>
             </div>
