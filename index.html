@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            font-family: Metro Sans, sans-serif;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .headercss{
+            width: 100%;
+            padding: 0px 10px;
+            height: 44px;
+            border-bottom: 1px solid rgb(242, 243, 247);
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+        }
+        .no-underline{
+            text-decoration-line: none;
+        }
+        .cursor-pointer{
+            cursor: pointer;
+        }
+        .w-85px{
+            width: 85px;
+        }
+        .h-26px{
+            height: 26px;
+        }
+        .text-gray-800{
+            color: rgb(48, 52, 65);
+        }
+        .font-bold{
+            font-weight: 700;
+        }
+        .text-16px{
+            font-size: 16px;
+        }
+        .leading-23px{
+            line-height: 23px;
+        }
+        .overflow-hidden{
+            overflow: hidden;
+        }
+        .text-right{
+            text-align: center;
+        }
+        .mainwrap{
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        .maintop{
+            height: 62px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgb(242, 243, 247);
+            background-color: rgb(255, 255, 255);
+        }
+        .topinner{
+            display: flex;
+            padding: 4px;
+            border-radius: 60px;
+            background-color: rgb(242, 243, 247);
+        }
+        .maintopcss{
+            width: 100px;
+            height: 30px;
+            border-radius: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(33, 34, 36);
+            text-decoration: none;
+        }
+        .text-15px{
+            font-size: 15px;
+        }
+        .position-relative{
+            position: relative;
+        }
+        .newimgcss{
+            position: absolute;
+            top: 0px;
+            right: -10px;
+            width: 8px;
+            height: 8px;
+        }
+        .maintopcss2{
+            width: 100px;
+            height: 30px;
+            border-radius: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(33, 34, 36);
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+        .navwrap{
+            top: 44px;
+            position: sticky;
+            z-index: 20;
+        }
+        .navcss{
+            position: relative;
+            padding-right: 40px;
+            height: 42px;
+            display: flex;
+            border-bottom: 1px solid rgb(242, 243, 247);
+            background: rgb(255, 255, 255);
+        }
+        .navlistcss{
+            margin: 0px;
+            padding-left: 16px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            overflow-x: scroll;
+            scrollbar-width: none;
+            white-space: nowrap;
+        }
+        .navunit{
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0px 8px;
+        }
+        .navf{
+            font-size: 14px;
+            color: rgb(114, 117, 133);
+            text-decoration: none;
+        }
+        .selected{
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 3px;
+            background-color: rgb(255, 212, 0);
+        }
+        .catbuttoncss{
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+            outline: 0px;
+            border: 1px solid rgb(242, 243, 247);
+            border-radius: 50%;
+        }
+        .butspan{
+            display: inline-block;
+            font-style: normal;
+            line-height: 0;
+            text-align: center;
+            text-rendering: optimizeLegibility;
+            vertical-align: -0.125em;
+            color: rgb(85, 89, 105);
+        }
+        .mainlistwrap{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .mainunitwrap{
+            width: 100%;
+            padding: 8px 20px;
+        }
+        .mainunita{
+            width: 100%;
+            height: 96px;
+            display: flex;
+            position: relative;
+            text-decoration: none;
+        }
+        .unitimgwrap{
+            position: relative;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-right: 16px;
+            width: 128px;
+        }
+        .unitimgcss{
+            contain: layout;
+            display: block;
+            width: 100%;
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 1;
+        }
+        .unitinfowrap{
+            color: rgb(48, 52, 65);
+            flex: 1 1 0%;
+            display: flex;
+            flex-direction: column;
+        }
+        .unittitle{
+            word-break: break-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: normal;
+            margin: 0px;
+            font-size: 16px;
+            line-height: 21px;
+            height: 42px;
+        }
+        .subtitle{
+            flex-grow: 1;
+            height: 16px;
+        }
+        .horoscope{
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            color: rgb(154, 155, 167);
+            font-size: 12px;
+        }
+        .starwrap{
+            display: inline-block;
+            font-style: normal;
+            line-height: 0;
+            text-align: center;
+            text-transform: none;
+            vertical-align: -0.125em;
+            text-rendering: optimizeLegibility;
+            margin: -1px, 0px, 0px;
+            color: rgb(255, 212, 0);
+        }
+        .horodiv{
+            display: inline-block;
+            margin: 0px 4px;
+            width: 1px;
+            border-left: 1px solid rgb(228, 229, 237);
+            height: 10px;
+        }
+        .pricewrap{
+            display: flex;
+            align-items: center;
+        }
+        .pricetext{
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(48, 52, 65);
+            height: 20px;
+        }
+        .unitbtnwrap{
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+        .unitbtn{
+            transition: background-color 0.3s;
+            width: 48px;
+            height: 20px;
+            align-items: center;
+            border-radius: 10px;
+            font-size: 10px;
+            border: 1px solid rgb(228, 229, 237);
+            background-color: rgb(255, 255, 255);
+            color: rgb(154, 155, 167);
+        }
+    </style>
+</head>
+<body>
+    <header heigh="44" class="headercss">
+        <a direction="left" class="h-26px w-85px cursor-pointer no-underline" href="/">
+            <svg height="100%" viewBox="0 0 85 26" width="85" xmlns="http://www.w3.org/2000/svg"><path d="M77.69 4.86c3.975 0 7.197 3.215 7.197 7.18l-.002.055h.002c.073 3.477.074 5.769.003 6.874-.108 1.659-.724 3.372-1.947 4.693A7.21 7.21 0 0 1 77.593 26c-2.724 0-4.998-.984-6.653-2.921l-.05-.059 3.226-2.684c.837.997 1.938 1.48 3.478 1.48.9 0 1.67-.358 2.259-.992.515-.556.817-1.263.832-1.813v-.443a7.186 7.186 0 0 1-2.995.65c-3.975 0-7.197-3.214-7.197-7.179 0-3.964 3.222-7.178 7.197-7.178zm-32.13-.225c4.131 0 7.48 3.34 7.48 7.46 0 4.121-3.349 7.462-7.48 7.462s-7.48-3.34-7.48-7.461c0-4.12 3.349-7.461 7.48-7.461zM4.533 0v10.354L8.623 5.2h5.309l-5.337 6.726 5.572 7.065h-4.98L4.534 13.42v5.572H0V0h4.533zM29.92 4.86a6.233 6.233 0 0 1 6.233 6.234v7.897H31.96v-7.908a2.04 2.04 0 0 0-4.074-.152l-.006.152v7.908h-4.193v-7.908a2.04 2.04 0 0 0-4.075-.152l-.005.152v7.908h-4.194v-7.897a6.233 6.233 0 0 1 10.371-4.662 6.201 6.201 0 0 1 4.136-1.571zm31.847 0a6.8 6.8 0 0 1 6.8 6.8v7.331h-4.194v-7.34a2.607 2.607 0 0 0-2.441-2.602l-.165-.006a2.607 2.607 0 0 0-2.602 2.442l-.005.165v7.34l-4.193.001v-7.33a6.8 6.8 0 0 1 6.8-6.8zM45.56 8.818a3.282 3.282 0 0 0-3.287 3.279 3.282 3.282 0 0 0 3.287 3.278 3.282 3.282 0 0 0 3.287-3.278 3.282 3.282 0 0 0-3.287-3.279zm32.13.226a3 3 0 0 0-3.003 2.996 3 3 0 0 0 3.003 2.996 3 3 0 0 0 3.003-2.996 3 3 0 0 0-3.003-2.996z" fill="#212224" fill-rule="evenodd"></path></svg>
+        </a>
+        <a direction="right" href="/" class="no-underline">
+            <h1 class="text-center text-16px font-bold leading-23px text-gray-800 overflow-hidden break-all">디자인</h1>
+        </a>
+    </header>
+    <div class="mainwrap">
+        <div class="maintop">
+            <div class="topinner">
+                <a class="maintopcss" href="/">
+                    <span class="font-bold text-15px position-relative">
+                        추천
+                        <img src="https://static.cdn.kmong.com/assets/mobile/pages/gateway/n_badge@3x.png" alt="NEW 뱃지" class="newimgcss">
+                    </span>
+                </a>
+                <a class="maintopcss2" href="/">
+                    <span class="font-bold text-15px position-relative">전체 서비스</span>
+                </a>
+            </div>
+        </div>
+        <div class="navwrap">
+            <nav class="navcss">
+                <ul class="navlistcss">
+                    <li class="navunit">
+                        <a class="navf" href="/">전체</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">로고 디자인</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">명함</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">브랜드 디자인·가이드</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">전단지·포스터·인쇄물</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">메뉴판</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">패키지</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">팩표지·내지</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">삽화</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">현수막·배너</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">아이콘·버튼</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">웹UI·UX</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">앨범커버</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">스티커/a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">봉투·초대장</a>
+                    </li>
+                    <li class="navunit">
+                        <a class="navf" href="/">홍보물</a>
+                    </li>
+                </ul>
+                <button class="catbuttoncss">
+                    <span color class="butspan">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path xmlns="http://www.w3.org/2000/svg" d="M16.2207159,6.10870583 C16.5916812,5.74209279 16.5932964,5.14609072 16.2243236,4.77749794 C15.8553508,4.40890516 15.2555125,4.40730026 14.8845472,4.77391329 L7.77928409,11.9296701 C7.40827322,12.2963282 7.40670988,12.7039529 7.7757925,13.0725272 L14.8810556,20.2226181 C15.2500929,20.5911471 15.8499315,20.5926484 16.2208326,20.2259713 C16.5917338,19.8592942 16.5932448,19.2632919 16.2242075,18.8947628 L9.75,12.5010986 L16.2207159,6.10870583 Z" transform="translate(12.000000, 12.500000) scale(1, -1) rotate(-270.000000) translate(-12.000000, -12.500000) "></path></svg>
+                    </span>
+                </button>
+            </nav>
+        </div>
+        <div class="mainlistwrap">
+            <div class="mainunitwrap">
+                <a class="mainunita" href="/">
+                    <div class="unitimgwrap">
+                        <img loading="lazy" src="/img/logo.jpg" class="unitimgcss">
+                    </div>
+                    <div class="unitinfowrap">
+                        <h3 class="unittitle">TITLE</h3>
+                        <div class="subtitle"></div>
+                        <div class="horoscope">
+                            <span role="img" rotate="0" class="starwrap">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path d="M8.37094152,8.12482574 L2.52598096,8.59636398 L2.36821881,8.6135218 C0.881583763,8.81867772 0.513822851,10.1467426 1.72605142,11.1443161 L6.11068071,14.7526934 L4.80553251,20.0682859 L4.77348322,20.2161997 C4.50052597,21.673724 5.6402616,22.4726949 6.9887771,21.699537 L12.00271,18.8250573 L17.0166429,21.699537 L17.1506515,21.7715841 C18.4829447,22.4403279 19.5680516,21.5674348 19.1998875,20.0682859 L17.8937294,14.7526934 L22.2793686,11.1443161 L22.3984321,11.0405714 C23.4954951,10.0270601 23.0352205,8.72174778 21.479439,8.59636398 L15.6334685,8.12482574 L13.3880977,3.09014615 C12.7393731,1.6361626 11.2656405,1.63707337 10.6173223,3.09014615 L8.37094152,8.12482574 Z"></path></svg>
+                            </span>
+                            4.9
+                            <span class="horodiv"></span>
+                            <div class="horotext">50개의 평가</div>
+                        </div>
+                        <div class="pricewrap">
+                            <div class="pricetext">45000원~</div>
+                        </div>
+                        <div class="unitbtnwrap">
+                            <button class="unitbtn">
+                                수정
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="mainunitwrap">
+                <a class="mainunita" href="/">
+                    <div class="unitimgwrap">
+                        <img loading="lazy" src="/img/logo.jpg" class="unitimgcss">
+                    </div>
+                    <div class="unitinfowrap">
+                        <h3 class="unittitle">TITLE</h3>
+                        <div class="subtitle"></div>
+                        <div class="horoscope">
+                            <span role="img" rotate="0" class="starwrap">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path d="M8.37094152,8.12482574 L2.52598096,8.59636398 L2.36821881,8.6135218 C0.881583763,8.81867772 0.513822851,10.1467426 1.72605142,11.1443161 L6.11068071,14.7526934 L4.80553251,20.0682859 L4.77348322,20.2161997 C4.50052597,21.673724 5.6402616,22.4726949 6.9887771,21.699537 L12.00271,18.8250573 L17.0166429,21.699537 L17.1506515,21.7715841 C18.4829447,22.4403279 19.5680516,21.5674348 19.1998875,20.0682859 L17.8937294,14.7526934 L22.2793686,11.1443161 L22.3984321,11.0405714 C23.4954951,10.0270601 23.0352205,8.72174778 21.479439,8.59636398 L15.6334685,8.12482574 L13.3880977,3.09014615 C12.7393731,1.6361626 11.2656405,1.63707337 10.6173223,3.09014615 L8.37094152,8.12482574 Z"></path></svg>
+                            </span>
+                            4.9
+                            <span class="horodiv"></span>
+                            <div class="horotext">50개의 평가</div>
+                        </div>
+                        <div class="pricewrap">
+                            <div class="pricetext">45000원~</div>
+                        </div>
+                        <div class="unitbtnwrap">
+                            <button class="unitbtn">
+                                수정
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="mainunitwrap">
+                <a class="mainunita" href="/">
+                    <div class="unitimgwrap">
+                        <img loading="lazy" src="/img/logo.jpg" class="unitimgcss">
+                    </div>
+                    <div class="unitinfowrap">
+                        <h3 class="unittitle">TITLE</h3>
+                        <div class="subtitle"></div>
+                        <div class="horoscope">
+                            <span role="img" rotate="0" class="starwrap">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path d="M8.37094152,8.12482574 L2.52598096,8.59636398 L2.36821881,8.6135218 C0.881583763,8.81867772 0.513822851,10.1467426 1.72605142,11.1443161 L6.11068071,14.7526934 L4.80553251,20.0682859 L4.77348322,20.2161997 C4.50052597,21.673724 5.6402616,22.4726949 6.9887771,21.699537 L12.00271,18.8250573 L17.0166429,21.699537 L17.1506515,21.7715841 C18.4829447,22.4403279 19.5680516,21.5674348 19.1998875,20.0682859 L17.8937294,14.7526934 L22.2793686,11.1443161 L22.3984321,11.0405714 C23.4954951,10.0270601 23.0352205,8.72174778 21.479439,8.59636398 L15.6334685,8.12482574 L13.3880977,3.09014615 C12.7393731,1.6361626 11.2656405,1.63707337 10.6173223,3.09014615 L8.37094152,8.12482574 Z"></path></svg>
+                            </span>
+                            4.9
+                            <span class="horodiv"></span>
+                            <div class="horotext">50개의 평가</div>
+                        </div>
+                        <div class="pricewrap">
+                            <div class="pricetext">45000원~</div>
+                        </div>
+                        <div class="unitbtnwrap">
+                            <button class="unitbtn">
+                                수정
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="mainunitwrap">
+                <a class="mainunita" href="/">
+                    <div class="unitimgwrap">
+                        <img loading="lazy" src="/img/logo.jpg" class="unitimgcss">
+                    </div>
+                    <div class="unitinfowrap">
+                        <h3 class="unittitle">TITLE</h3>
+                        <div class="subtitle"></div>
+                        <div class="horoscope">
+                            <span role="img" rotate="0" class="starwrap">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path d="M8.37094152,8.12482574 L2.52598096,8.59636398 L2.36821881,8.6135218 C0.881583763,8.81867772 0.513822851,10.1467426 1.72605142,11.1443161 L6.11068071,14.7526934 L4.80553251,20.0682859 L4.77348322,20.2161997 C4.50052597,21.673724 5.6402616,22.4726949 6.9887771,21.699537 L12.00271,18.8250573 L17.0166429,21.699537 L17.1506515,21.7715841 C18.4829447,22.4403279 19.5680516,21.5674348 19.1998875,20.0682859 L17.8937294,14.7526934 L22.2793686,11.1443161 L22.3984321,11.0405714 C23.4954951,10.0270601 23.0352205,8.72174778 21.479439,8.59636398 L15.6334685,8.12482574 L13.3880977,3.09014615 C12.7393731,1.6361626 11.2656405,1.63707337 10.6173223,3.09014615 L8.37094152,8.12482574 Z"></path></svg>
+                            </span>
+                            4.9
+                            <span class="horodiv"></span>
+                            <div class="horotext">50개의 평가</div>
+                        </div>
+                        <div class="pricewrap">
+                            <div class="pricetext">45000원~</div>
+                        </div>
+                        <div class="unitbtnwrap">
+                            <button class="unitbtn">
+                                수정
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
