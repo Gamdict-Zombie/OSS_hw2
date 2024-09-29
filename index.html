@@ -21,9 +21,6 @@
         .no-underline{
             text-decoration-line: none;
         }
-        .cursor-pointer{
-            cursor: pointer;
-        }
         .w-85px{
             width: 85px;
         }
@@ -47,11 +44,6 @@
         }
         .text-right{
             text-align: center;
-        }
-        .mainwrap{
-            width: 100%;
-            position: relative;
-            z-index: 1;
         }
         .maintop{
             height: 62px;
@@ -300,7 +292,7 @@
         .unitbtn:hover{
             background-color: rgb(228, 229, 237);
         }
-        .footnavwrap{
+        .footnavwrapindex{
             position: fixed;
             bottom: 0;
             z-index: 1000;
@@ -334,25 +326,6 @@
             text-rendering: optimizeLegibility;
             color: rgb(154, 155, 167);
         }
-        .searchwrap{
-            display: flex;
-            justify-content: flex-end;
-        }
-        .searchbtnwrap{
-            display: flex;
-            justify-content: center;
-            max-width: 32px;
-        }
-        .topbtnimg{
-            display: inline-block;
-            font-style: normal;
-            line-height: 0;
-            text-align: center;
-            text-transform: none;
-            vertical-align: -0.125em;
-            text-rendering: optimizeLegibility;
-            color: rgb(33, 34, 36);
-        }
         .undernav{
             height: 54px;
             padding: 0px 16px;
@@ -362,6 +335,11 @@
         }
     </style>
 </head>
+<script>
+    document.getElementById("addbutton").addEventListener("click", function(){
+        location.href = "https://golden-gelato-ea348a.netlify.app/add.html";
+    })
+</script>
 <body>
     <header heigh="44" class="headercss">
         <a direction="left" class="h-26px w-85px cursor-pointer no-underline" href="/">
@@ -454,7 +432,7 @@
             </nav>
         </div>
         <div class="undernav">
-            <button class="addbtn">
+            <button class="addbtn" id="addbutton">
                 추가
             </button>
         </div>
@@ -465,7 +443,7 @@
                         <img loading="lazy" src="/img/1.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">명함디자인</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -492,7 +470,7 @@
                         <img loading="lazy" src="/img/2.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">깔끔하고 세련된 로고 디자인</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -519,7 +497,7 @@
                         <img loading="lazy" src="/img/3.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">웹디자인 해드립니다</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -546,7 +524,7 @@
                         <img loading="lazy" src="/img/4.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">귀여운 캐릭터 디자인 및 제품 디자인</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -573,7 +551,7 @@
                         <img loading="lazy" src="/img/5.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">맞춤 브랜드 디자인</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -600,7 +578,7 @@
                         <img loading="lazy" src="/img/6.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">깔끔한 로고 디자인, 웹디자인</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -627,7 +605,7 @@
                         <img loading="lazy" src="/img/7.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">상세페이지 제작</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -654,7 +632,7 @@
                         <img loading="lazy" src="/img/8.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">캐릭터 및 로고 디자인</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -681,7 +659,7 @@
                         <img loading="lazy" src="/img/9.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">웹페이지 제작해드립니다</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -708,7 +686,7 @@
                         <img loading="lazy" src="/img/10.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">브랜드 로고 제작</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -735,7 +713,7 @@
                         <img loading="lazy" src="/img/11.jpg" class="unitimgcss">
                     </div>
                     <div class="unitinfowrap">
-                        <h3 class="unittitle">TITLE</h3>
+                        <h3 class="unittitle">로고 작업해 드립니다</h3>
                         <div class="subtitle"></div>
                         <div class="horoscope">
                             <span role="img" rotate="0" class="starwrap">
@@ -758,7 +736,7 @@
             </div>
         </div>
     </div>
-    <nav class="footnavwrap">
+    <nav class="footnavwrapindex">
         <ul class="footnavlist">
             <li>
                 <a href="/" class="footnavunit">
