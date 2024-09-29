@@ -32,10 +32,6 @@
             border: 0;
             padding: 8px 12px;
             color: #727585;
-            cursor: pointer;
-        }
-        .cancelbtncss:hover{
-            background-color: #d5d6de;
         }
         .headercss{
             max-width: 1000px;
@@ -189,9 +185,9 @@
     </style>
 </head>
 <script>
-    function cancelmoveindex(){
+    document.getElementById("cancelbtn").addEventListener('click', function(){
         location.href = "https://golden-gelato-ea348a.netlify.app/";
-    }
+    });
 
     const elements = [
         {
@@ -255,8 +251,6 @@
             form.submit();
         }
     }
-
-    document.getElementById("cancelbtn").addEventListener('onclick', cancelmoveindex());
 </script>
 <body>
     <header heigh="44" class="headercss">
