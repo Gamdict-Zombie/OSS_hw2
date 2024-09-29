@@ -23,6 +23,10 @@
             border: 0;
             padding: 8px 12px;
             color: #303441;
+            cursor: pointer;
+        }
+        .submitbtncss:hover{
+            background-color: #e4be00;
         }
         .cancelbtncss{
             background-color: #e4e5ed;
@@ -189,58 +193,55 @@
     </style>
 </head>
 <script>
+    let InputArray;
+    let titleTextArray;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        InputArray = [
+            document.getElementById("title"),
+            document.getElementById("category"),
+            document.getElementById("price"),
+            document.getElementById("workingdate"),
+            document.getElementById("editcount"),
+            document.getElementById("prefilecount"),
+            document.getElementById("mainImg")
+        ];
+
+        titleTextArray = [
+            document.getElementById("titleSpan"),
+            document.getElementById("categorySpan"),
+            document.getElementById("priceSpan"),
+            document.getElementById("workingSpan"),
+            document.getElementById("editSpan"),
+            document.getElementById("prefileSpan"),
+            document.getElementById("mainimgSpan")
+        ];
+    });
+    function test(index){
+        if(InputArray[index].value == ''){
+            titleTextArray[index].style.color = "#dc3545";
+        }
+        else{
+            titleTextArray[index].style.color = "#303441";
+        }
+    }
+    for(var i = 0; i < 7; i++){
+        InputArray[i].addEventListener("input", () => test(i));
+    }
+
     function cancelmoveindex(){
         location.href = "https://golden-gelato-ea348a.netlify.app/";
     }
-
-    const elements = [
-        {
-            input: document.getElementById("title"),
-            text: document.getElementById("titleSpan")
-        },
-        {
-            input: document.getElementById("category"),
-            text: document.getElementById("categorySpan")
-        },
-        {
-            input: document.getElementById("price"),
-            text: document.getElementById("priceSpan")
-        },
-        {
-            input: document.getElementById("workingdate"),
-            text: document.getElementById("workingSpan")
-        },
-        {
-            input: document.getElementById("editcount"),
-            text: document.getElementById("editSpan")
-        },
-        {
-            input: document.getElementById("prefilecount"),
-            text: document.getElementById("prefileSpan")
-        },
-        {
-            input: document.getElementById("mainImg"),
-            text: document.getElementById("mainimgSpan")
-        }
-    ];
-
-    elements.forEach(element => {
-        let temp;
-
-        element.input.addEventListener('invalid', function(event) {
-            event.preventDefault();
-            temp = element.text.style.color;
-            element.input.setCustomValidity("이 필드를 채워주세요.");
-            element.text.style.color = '#dc3545';
-        });
-
-        element.input.addEventListener('input', function() {
-            if(element.input.checkValidity()) {
-                element.input.setCustomValidity('');
-                element.text.style.color = temp;
+    function checkvalid(){
+        for(var i = 0; i < 7; i++){
+            if(InputArray[i].value == ''){
+                titleTextArray[i].style.color = "#dc3545";
             }
-        });
-    });
+            else{
+                titleTextArray[i].style.color = "#303441";
+            }
+        };
+    }
 
     function previewImage(event) {
     const imagePreview = document.getElementById('imagePreview');
@@ -252,8 +253,8 @@
         const form = document.querySelector('form');
         if (form.checkValidity()) {
             alert("게시물이 추가됩니다");
-            form.submit();
         }
+        location.href = "https://golden-gelato-ea348a.netlify.app/"
     }
 
     document.getElementById("cancelbtn").addEventListener('onclick', cancelmoveindex());
@@ -385,7 +386,7 @@
             <div class="divinputwrap nodivwith">
                 <div class="underbtnwrap">
                     <button type="button" class="cancelbtncss" id="cancelbtn">취소</button>
-                    <button type="submit" class="submitbtncss">제출하기</button>
+                    <button type="submit" class="submitbtncss" onclick="checkvalid()">제출하기</button>
                 </div>
             </div>
         </form>

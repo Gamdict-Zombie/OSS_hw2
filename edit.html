@@ -23,6 +23,10 @@
             border: 0;
             padding: 8px 12px;
             color: #303441;
+            cursor: pointer;
+        }
+        .submitbtncss:hover{
+            background-color: #e4be00;
         }
         .cancelbtncss{
             background-color: #e4e5ed;
@@ -32,6 +36,10 @@
             border: 0;
             padding: 8px 12px;
             color: #727585;
+            cursor: pointer;
+        }
+        .cancelbtncss:hover{
+            background-color: #d5d6de;
         }
         .headercss{
             max-width: 1000px;
@@ -185,40 +193,39 @@
     </style>
 </head>
 <script>
-    document.getElementById("cancelbtn").addEventListener('click', function(){
-        location.href = "https://golden-gelato-ea348a.netlify.app/";
-    });
-
+    document.addEventListener('DOMContentLoaded', function() {
     const elements = [
         {
-            input: document.getElementById("title"),
-            text: document.getElementById("titleSpan")
+            Aline: document.getElementById("title"),
+            Bline: document.getElementById("titleSpan")
         },
         {
-            input: document.getElementById("category"),
-            text: document.getElementById("categorySpan")
+            Aline: document.getElementById("category"),
+            Bline: document.getElementById("categorySpan")
         },
         {
-            input: document.getElementById("price"),
-            text: document.getElementById("priceSpan")
+            Aline: document.getElementById("price"),
+            Bline: document.getElementById("priceSpan")
         },
         {
-            input: document.getElementById("workingdate"),
-            text: document.getElementById("workingSpan")
+            
+            Aline: document.getElementById("workingdate"),
+            Bline: document.getElementById("workingSpan")
         },
         {
-            input: document.getElementById("editcount"),
-            text: document.getElementById("editSpan")
+            Aline: document.getElementById("editcount"),
+            Bline: document.getElementById("editSpan")
         },
         {
-            input: document.getElementById("prefilecount"),
-            text: document.getElementById("prefileSpan")
+            Aline: document.getElementById("prefilecount"),
+            Bline: document.getElementById("prefileSpan")
         },
         {
-            input: document.getElementById("mainImg"),
-            text: document.getElementById("mainimgSpan")
+            Aline: document.getElementById("mainImg"),
+            Bline: document.getElementById("mainimgSpan")
         }
     ];
+    });
 
     elements.forEach(element => {
         let temp;
@@ -248,9 +255,24 @@
         const form = document.querySelector('form');
         if (form.checkValidity()) {
             alert("게시물이 추가됩니다");
-            form.submit();
         }
+        location.href = "https://golden-gelato-ea348a.netlify.app/"
     }
+
+    function movtocancel() {
+        location.href = "https://golden-gelato-ea348a.netlify.app/view.html";
+    }
+
+    function putdata(){
+        document.getElementById("title").value = "명함디자인";
+        document.getElementById("category").value = "명함";
+        document.getElementById("price").value = "59000";
+        document.getElementById("workingdate").value = 2;
+        document.getElementById("editcount").value = 5;
+        document.getElementById("prefilecount").value = 2;
+        document.getElementById("mainImg").value = "/img/1.jpg"
+    }
+    
 </script>
 <body>
     <header heigh="44" class="headercss">
@@ -266,7 +288,7 @@
                 <div class="inputwrap nodivwith">
                     <span id="titleSpan" class="labelwrap">제목</span>
                     <div class="inputinnercss">
-                        <input id="title" type="text" placeholder="서비스를 잘 드러낼 수 있는 제목을 입력해주세요" required class="inputcss">
+                        <input id="title" type="text" placeholder="명함디자인" required class="inputcss">
                     </div>
                 </div>
             </div>
@@ -275,7 +297,7 @@
                     <span id="categorySpan" class="labelwrap">카테고리</span>
                     <div class="inputinnercss background-colorgray">
                         <select id="category" class="selectcatcss" required>
-                            <option value>선택해주세요</option>
+                            <option value>명함</option>
                             <option>명함</option>
                             <option>로고</option>
                             <option>캐릭터 디자인</option>
@@ -287,7 +309,7 @@
                 <div class="inputwrap nodivwith">
                     <span id="priceSpan" class="labelwrap">가격</span>
                     <div class="inputinnercss">
-                        <input id="price" type="text" placeholder="입력해주세요" required class="inputcss">
+                        <input id="price" type="text" placeholder="59000" required class="inputcss">
                     </div>
                     <span class="priceunit">원</span>
                 </div>
@@ -297,52 +319,52 @@
                     <div class="checkunitwrap">
                         <span id="workingSpan" class="labelwrap">작업기간</span>
                         <div class="inputinnercss">
-                            <input id="workingdate" type="number" required class="inputnumcss">
+                            <input id="workingdate" type="number" required class="inputnumcss" placeholder="2">
                         </div>
                         <span class="priceunit">일</span>
                     </div>
                     <div class="checkunitwrap">
                         <span id="editSpan" class="labelwrap">수정횟수</span>
                         <div class="inputinnercss">
-                            <input id="editcount" type="number" required class="inputnumcss">
+                            <input id="editcount" type="number" required class="inputnumcss" placeholder="2">
                         </div>
                         <span class="priceunit">회</span>
                     </div>
                     <div class="checkunitwrap">
                         <span id="prefileSpan" class="labelwrap">시안개수</span>
                         <div class="inputinnercss">
-                            <input id="prefilecount" type="number" required class="inputnumcss">
+                            <input id="prefilecount" type="number" required class="inputnumcss" placeholder="5">
                         </div>
                         <span class="priceunit">개</span>
                     </div>
                     <div class="checkunitwrap">
                         <span class="labelwrap">양면</span>
                         <div class="checkboxinnercss">
-                            <input type="checkbox">
+                            <input type="checkbox" checked>
                         </div>
                     </div>
                     <div class="checkunitwrap">
                         <span class="labelwrap">원본파일 제공</span>
                         <div class="checkboxinnercss">
-                            <input type="checkbox">
+                            <input type="checkbox" checked>
                         </div>
                     </div>
                     <div class="checkunitwrap">
                         <span class="labelwrap">고행상도 파일 제공</span>
                         <div class="checkboxinnercss">
-                            <input type="checkbox">
+                            <input type="checkbox" checked>
                         </div>
                     </div>
                     <div class="checkunitwrap">
                         <span class="labelwrap">인쇄/배송</span>
                         <div class="checkboxinnercss">
-                            <input type="checkbox">
+                            <input type="checkbox" checked>
                         </div>
                     </div>
                     <div class="checkunitwrap">
                         <span class="labelwrap">상업적 이용 가능</span>
                         <div class="checkboxinnercss">
-                            <input type="checkbox">
+                            <input type="checkbox" checked>
                         </div>
                     </div>
                 </div>
@@ -352,15 +374,33 @@
                     <span class="labelwrap">서비스 설명</span>
                     <div class="inputinnercss">
                         <textarea class="textareacss" rows="10">
-[서비스 소개]
-- 사용되는 이미지 및 폰트는 무료 라이선스를 사용합니다.
-- 최종 확정되어 발송된 제작물의 저작권은 의뢰인에게 귀속됩니다.
-- 제작된 작업물은 포트폴리오로 사용될 수 있습니다. 원치 않으실 경우 미리 말씀해 주세요.
- 
-[구매 시 유의사항]
-- 인쇄물 실제 색상이 화면과 다소 차이가 있을 수 있으며 이로 인한 환불은 불가합니다.
-- 최종 시안 확인 후, 오타 등의 수정 사항은 책임지지 않습니다.
-- 인쇄가 진행되었을 경우, 수정 및 환불이 불가하니 꼼꼼히 확인해 주세요.
+명함 서비스 오픈
+신규 업체가 아닌, 기존에 로고와 명함을 진행하던 업체입니다.
+명함 디자인과 인쇄만 원하시는 고객님들을 위해 신규 서비스를 열었습니다.
+맞춤 로고 디자인을 전문으로 하여 하나하나 직접 구상 및 제작합니다. 공장형 제작이 아닌, 꼼꼼한 사전조사 이후 상담 -> 스케치 -> 제작  단계를 거쳐 맞춤 제작을 드립니다. 믿고 맡겨주세요.
+
+명시된 작업일은 디자인 초안 전송 기간이며, 명함 배송 수령 기간이 아님을 명시드립니다.
+평균 명함 디자인 제작부터 수령까지 수정포함 영업일 기준 5일~12일 걸리며, 수정횟수 등에 따라 달라질 수 있습니다.
+
+로고 디자인 안심제
+: 1차 메인 디자인 시안 제공후 맘에 드시지 않을경우 메인 디자인 1회 무료 변경 해드립니다.
+메인 디자인 시안변경은 기존에 드린 디자인이 아예 바뀌어 새로 제작해야되는 경우 적용됩니다.
+명함의 경우 컬러, 텍스트 정보 및 배치 변경은 디테일수정에 해당합니다. 명함은 디자인 변경이 더 많은 범위에서 가능합니다. 각종 로고 복구, 이미지 등 디자인 난이도가 있는 명함만 디자인 안심제에 한하여 제한될수있음을 안내드려요. 
+
+캐릭터 및 일러스트 로고 안내
+간단한 선화 일러스트(선만 있는 심플한 캐릭터 및 일러스트)도 가능합니다.
+채색 및 복잡한 선화 캐릭터 및 일러스트 로고는 문의 부탁드러요!
+
+- 폰트 라이센스 -
+저작권에 문제없는 유료 / 무료 폰트를 사용하고 있습니다.
+로고 및 명함 2차 이용 가능합니다.
+
+- 저작권 - 
+작업 이후 의뢰인 분에게 귀속됩니다.
+
+- 원본 파일 - 
+로고 및 명함 ai 원본 파일을 제공해드립니다.
+jpg 이미지 파일도 함께 드립니다. 
                         </textarea>
                     </div>
                 </div>
@@ -370,7 +410,7 @@
                     <div class="checkunitwrap">
                         <span id="mainimgSpan" class="labelwrap">메인이미지</span>
                         <div class="inputinnercss">
-                            <input id="mainImg" type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)" required>
+                            <input id="mainImg" type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)">
                             <img id="imagePreview" src="" style="display: none; width: 200px; height: 200px;">
                         </div>
                     </div>
@@ -378,8 +418,8 @@
             </div>
             <div class="divinputwrap nodivwith">
                 <div class="underbtnwrap">
-                    <button type="button" class="cancelbtncss" id="cancelbtn">취소</button>
-                    <button type="submit" class="submitbtncss">제출하기</button>
+                    <button type="button" class="cancelbtncss" id="cancelbtn" onclick="movtocancel()">취소</button>
+                    <button type="submit" class="submitbtncss" onclick="putdata()">제출하기</button>
                 </div>
             </div>
         </form>

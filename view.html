@@ -322,19 +322,38 @@
             border-color: #e4e5ed;
             color: #303441;
         }
+        .underbtncss:hover{
+            background-color: #d5d6de;
+        }
         .backgroundyellow{
             background-color: #ffd400;
+        }
+        .backgroundyellow:hover{
+            background-color: #e4be00;
         }
         .underbtntext{
             font-weight: 700;
         }
     </style>
 </head>
+<script>
+    function clickdelete() {
+        if(confirm("게시물을 삭제하시겠습니까?")){
+            location.href = "https://golden-gelato-ea348a.netlify.app/";
+        };
+    }
+    function clickedit() {
+        location.href = "https://golden-gelato-ea348a.netlify.app/edit.html";
+    }
+    function clickprevious(){
+        location.href = "https://golden-gelato-ea348a.netlify.app/";
+    }
+</script>
 <body>
     <header heigh="44" class="headercss">
         <div direction="left" class="previouswrap">
             <div class="previouscss">
-                <button role="button" class="topbtncss">
+                <button role="button" class="topbtncss" onclick="clickprevious()">
                     <span role="img" rotate="0" class="topbtnimg">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path xmlns="http://www.w3.org/2000/svg" d="M9.41421356,12 L15.7071068,5.70710678 C16.0976311,5.31658249 16.0976311,4.68341751 15.7071068,4.29289322 C15.3165825,3.90236893 14.6834175,3.90236893 14.2928932,4.29289322 L7.29289322,11.2928932 C6.90236893,11.6834175 6.90236893,12.3165825 7.29289322,12.7071068 L14.2928932,19.7071068 C14.6834175,20.0976311 15.3165825,20.0976311 15.7071068,19.7071068 C16.0976311,19.3165825 16.0976311,18.6834175 15.7071068,18.2928932 L9.41421356,12 Z"></path></svg>
                     </span>
@@ -535,10 +554,10 @@
             <aside>
                 <section class="underbtnsection">
                     <div class="underbtnwrap">
-                        <button role="button" class="underbtncss">
+                        <button role="button" class="underbtncss" onclick="clickdelete()">
                             <span class="underbtntext">삭제</span>
                         </button>
-                        <button role="button" class="underbtncss backgroundyellow">
+                        <button role="button" class="underbtncss backgroundyellow" onclick="clickedit()">
                             <span class="underbtntext">수정</span>
                         </button>
                     </div>
