@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="my.css">
+    <style>
+        html{
+            font-family: Metro Sans, sans-serif;
+        }
+        body{
+            margin: 0;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .headercss{
+            transition: background-color 0.3s,border-color 0.3s;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+            border-color: transparent;
+            border: none;
+            margin-bottom: -44px;
+        }
+        .previouswrap{
+            display: flex;
+            justify-content: flex-start;
+        }
+        .previouscss{
+            display: flex;
+            justify-content: center;
+            max-width: 32px;
+        }
+        .topbtnimg{
+            color: rgb(255, 255, 255);
+        }
+        .maincss{
+            width: 100%;
+            margin: 0 auto;
+        }
+        .maindisplaywrap{
+            position: sticky;
+            top: 0;
+        }
+        .displaysection{
+            position: relative;
+        }
+        .displaysection{
+            cursor: pointer;
+        }
+        .slick-slider{
+            position: relative;
+            display: block;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        .slick-list{
+            transform: translateZ(0);
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            display: block;
+        }
+        .slick-track{
+            width: 100%;
+            opacity: 1;
+            margin-left: 0;
+            max-height: 400px;
+            position: relative;
+            top: 0;
+            left: 0;
+            margin-right: auto;
+            display: flex;
+            gap: 0px;
+        }
+        .slick-slide{
+            display: block;
+            float: left;
+            height: 100%;
+            min-height: 1px;
+            outline: none;
+            width: 100%;
+        }
+        .mainsection{
+            width: 100%;
+            position: relative;
+            background-color: rgb(255, 255, 255);
+        }
+        .underdisplaywrap{
+            flex-direction: column;
+            padding: 0 20px;
+            display: flex;
+            width: 100%;
+        }
+        .smt-90{
+            scroll-margin-top: 90px;
+        }
+        .info1section{
+            display: flex;
+            flex-direction: column;
+            margin-top: 16px;
+        }
+        .catwrap{
+            display: flex;
+            font-size: 13px;
+            color: rgb(114, 117, 133);
+            align-items: center;
+        }
+        .caticoncss{
+            display: inline-block;
+            font-style: normal;
+            line-height: 0;
+            text-align: center;
+            text-transform: none;
+            vertical-align: -0.125em;
+            text-rendering: optimizeLegibility;
+        }
+        .profilecss{
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            padding: 0;
+            margin: 8px 0;
+            border: none;
+            background: none;
+            text-decoration: none;
+            width: fit-content;
+        }
+        .profileimgcss{
+            width: 40px;
+            height: 40px;
+            background-color: #e4e5ed;
+            position: relative;
+            outline: none;
+            box-shadow: 0 0 0 1px rgb(0 0 0 / 5%);
+            border-radius: 50%;
+        }
+        .profileimg{
+            display: block;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.3s;
+            border-radius: 50%;
+            opacity: 1;
+        }
+        .profilenamewrap{
+            display: flex;
+            align-items: center;
+            column-gap: 2px;
+            margin-top: 2px;
+        }
+        .profilename{
+            font-size: 12px;
+            color: #727585;
+            font-weight: 500;
+            margin: 0;
+        }
+        .title{
+            font-weight: 500;
+            margin: 0;
+            color: #303441;
+            font-size: 18px;
+        }
+        .horowrap{
+            margin-top: 16px;
+            display: flex;
+            width: fit-content;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+        }
+        .starwrap{
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+        }
+        .star{
+            position: relative;
+            display: flex;
+            vertical-align: middle;
+            padding-right: 0;
+        }
+        .horocountwrap{
+            color: #9a9ba7;
+            font-size: 12px;
+        }
+        .info2section{
+            margin: 0 -20;
+            padding-bottom: 16px;
+            margin-top: 16px;
+        }
+        .info2inner{
+            color: #303441;
+            display: block;
+            margin-top: 28px;
+            padding: 0 20px;
+        }
+        .price{
+            color: #303441;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .portfoliohead{
+            margin: 20px 0 0;
+            font-weight: 700;
+            font-size: 20px;
+            color: #212224;
+        }
+        .info2check{
+            border-radius: 8px;
+            background-color: #fafafc;
+            padding: 12px 16px;
+            margin: 20px 0 0 0;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 4px;
+        }
+        .checklistcss{
+            font-size: 15px;
+            color: #555969;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .checkimg{
+            display: inline-block;
+            font-style: normal;
+            line-height: 0;
+            text-align: center;
+            text-transform: none;
+            vertical-align: -0.125em;
+            text-rendering: optimizeLegibility;
+            color: #ffd400;
+        }
+        .projectwrap{
+            margin: 12px -20px 0;
+            padding: 0 20px;
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+        }
+        .projectimg{
+            max-width: 376px;
+            min-width: 160px;
+            min-height: 160px;
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .display-block{
+            display: block;
+        }
+        .serviceinfotitle{
+            font-size: 20px;
+            font-weight: 700;
+            color: #212224;
+            margin: 20px 0 4px 0;
+            white-space: pre-wrap;
+        }
+        .serviceinfowrap{
+            color: #303441;
+            margin: 8px;
+            text-align: justify;
+            font-size: 15px;
+            user-select: none;
+            word-break: break-all;
+            white-space: pre-line;
+        }
+        .roundmaincss{
+            display: block;
+            content: '';
+            background-color: #fff;
+            border-radius: 16px 16px 0 0;
+            width: 100%;
+            height: 14px;
+            position: absolute;
+            top: -12px;
+            left: 0;
+        }
+        .underbtnsection{
+            width: 100%;
+            padding: 12px 16px;
+            background: #fff;
+            gap: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            display: flex;
+            border-top: 1px solid #f2f3f7;
+        }
+        .underbtnwrap{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+            grid-gap: 10px;
+            width: 100%;
+        }
+        .underbtncss{
+            outline: none;
+            border-width: 1px;
+            border-style: solid;
+            box-sizing: border-box;
+            border-radius: 4px;
+            line-height: 1;
+            font-weight: 500;
+            transition: background-color 0.3s, border-color 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            user-select: none;
+            white-space: nowrap;
+            width: 100%;
+            height: 52px;
+            font-size: 16px;
+            padding: 0 24px;
+            min-width: 80px;
+            background-color: #fff;
+            border-color: #e4e5ed;
+            color: #303441;
+        }
+        .backgroundyellow{
+            background-color: #ffd400;
+        }
+        .underbtntext{
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <header heigh="44" class="headercss">
+        <div direction="left" class="previouswrap">
+            <div class="previouscss">
+                <button role="button" class="topbtncss">
+                    <span role="img" rotate="0" class="topbtnimg">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path xmlns="http://www.w3.org/2000/svg" d="M9.41421356,12 L15.7071068,5.70710678 C16.0976311,5.31658249 16.0976311,4.68341751 15.7071068,4.29289322 C15.3165825,3.90236893 14.6834175,3.90236893 14.2928932,4.29289322 L7.29289322,11.2928932 C6.90236893,11.6834175 6.90236893,12.3165825 7.29289322,12.7071068 L14.2928932,19.7071068 C14.6834175,20.0976311 15.3165825,20.0976311 15.7071068,19.7071068 C16.0976311,19.3165825 16.0976311,18.6834175 15.7071068,18.2928932 L9.41421356,12 Z"></path></svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div direction="right" class="searchwrap">
+            <div class="searchbtnwrap">
+                <button role="button" class="topbtncss">
+                    <span role="img" rotate="0" class="topbtnimg">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path xmlns="http://www.w3.org/2000/svg" d="M11.2307008,3.5 C15.5002489,3.5 18.9614015,6.96828437 18.9614015,11.24663 C18.9614015,13.0978372 18.3133954,14.7973826 17.2322825,16.1299241 L20.2742127,19.178378 C20.5762688,19.4810023 20.5764739,19.9714482 20.2746708,20.2738195 C19.9728678,20.5761908 19.4833433,20.5759857 19.1812873,20.2733614 L19.1812873,20.2733614 L16.1426973,17.2288066 C14.8071694,18.3312107 13.0960911,18.9932599 11.2307008,18.9932599 C6.96115262,18.9932599 3.5,15.5249756 3.5,11.24663 C3.5,6.96828437 6.96115262,3.5 11.2307008,3.5 Z M11.2307008,5.04932599 C7.81506225,5.04932599 5.04614015,7.82395349 5.04614015,11.24663 C5.04614015,14.6693064 7.81506225,17.4439339 11.2307008,17.4439339 C14.6463393,17.4439339 17.4152614,14.6693064 17.4152614,11.24663 C17.4152614,7.82395349 14.6463393,5.04932599 11.2307008,5.04932599 Z"></path></svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="mainwrap">
+        <div class="maincss">
+            <div class="maindisplaywrap">
+                <section class="displaysection">
+                    <div class="cursor-pointer">
+                        <div class="slick-slider">
+                            <div class="slick-list">
+                                <div class="slick-track">
+                                    <div data-index="0" class="slick-slide" aria-hidden="false" tabindex="-1">
+                                        <img height="488" src="https://d2v80xjmx68n4w.cloudfront.net/gigs/3YzG61724985772.jpg" width="655" loading="lazy" style="width:100%;height:auto;view-transition-name:gig-main-gallery-572563">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section class="mainsection">
+                <div class="roundmaincss"></div>
+                <main class="underdisplaywrap">
+                    <div class="smt-90">
+                        <section class="info1section">
+                            <div class="catwrap">
+                                디자인
+                                <span role="img" rotate="0" class="caticoncss">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path xmlns="http://www.w3.org/2000/svg" d="M9.41421356,12 L15.7071068,5.70710678 C16.0976311,5.31658249 16.0976311,4.68341751 15.7071068,4.29289322 C15.3165825,3.90236893 14.6834175,3.90236893 14.2928932,4.29289322 L7.29289322,11.2928932 C6.90236893,11.6834175 6.90236893,12.3165825 7.29289322,12.7071068 L14.2928932,19.7071068 C14.6834175,20.0976311 15.3165825,20.0976311 15.7071068,19.7071068 C16.0976311,19.3165825 16.0976311,18.6834175 15.7071068,18.2928932 L9.41421356,12 Z" transform="translate(11.500000, 12.000000) scale(-1, 1) translate(-11.500000, -12.000000) "></path></svg>
+                                </span>
+                                명함
+                            </div>
+                            <a class="profilecss" href="/">
+                                <div size="40" shape="0" role="article" class="profileimgcss">
+                                    <img src="https://d2v80xjmx68n4w.cloudfront.net/members/thumbs/VnCN71724899725.jpeg" alt="avatar" shape="0" loading="lazy" class="profileimg">
+                                </div>
+                                <div class="profilenamewrap">
+                                    <p class="profilename">뉴플릿</p>
+                                </div>
+                            </a>
+                            <h1 class="title">QR 명함디자인,쿠폰제작+500매인쇄+로고 I 로고명함</h1>
+                            <a class="horowrap">
+                                <div class="starwrap">
+                                    <svg class="star-grad" style="position:absolute;z-index:0;width:0;height:0;visibility:hidden"><defs><linearGradient id="starGrad356041396180079" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" class="stop-color-first" style="stop-color:#ffd400;stop-opacity:1"></stop><stop offset="90%" class="stop-color-first" style="stop-color:#ffd400;stop-opacity:1"></stop><stop offset="90%" class="stop-color-final" style="stop-color:#e4e5ed;stop-opacity:1"></stop><stop offset="100%" class="stop-color-final" style="stop-color:#e4e5ed;stop-opacity:1"></stop></linearGradient></defs></svg>
+                                    <div class="star">
+                                        <svg viewBox="0 0 24 24" class="widget-svg" style="width:12px;height:12px;transition:transform .2s ease-in-out"><path class="star" style="fill:#ffd400;transition:fill .2s ease-in-out" d="M8.37094152,8.12482574 L2.52598096,8.59636398 L2.36821881,8.6135218 C0.881583763,8.81867772 0.513822851,10.1467426 1.72605142,11.1443161 L6.11068071,14.7526934 L4.80553251,20.0682859 L4.77348322,20.2161997 C4.50052597,21.673724 5.6402616,22.4726949 6.9887771,21.699537 L12.00271,18.8250573 L17.0166429,21.699537 L17.1506515,21.7715841 C18.4829447,22.4403279 19.5680516,21.5674348 19.1998875,20.0682859 L17.8937294,14.7526934 L22.2793686,11.1443161 L22.3984321,11.0405714 C23.4954951,10.0270601 23.0352205,8.72174778 21.479439,8.59636398 L15.6334685,8.12482574 L13.3880977,3.09014615 C12.7393731,1.6361626 11.2656405,1.63707337 10.6173223,3.09014615 L8.37094152,8.12482574 Z"></path></svg>
+                                    </div>
+                                    <div class="star">
+                                        <svg viewBox="0 0 24 24" class="widget-svg" style="width:12px;height:12px;transition:transform .2s ease-in-out"><path class="star" style="fill:#ffd400;transition:fill .2s ease-in-out" d="M8.37094152,8.12482574 L2.52598096,8.59636398 L2.36821881,8.6135218 C0.881583763,8.81867772 0.513822851,10.1467426 1.72605142,11.1443161 L6.11068071,14.7526934 L4.80553251,20.0682859 L4.77348322,20.2161997 C4.50052597,21.673724 5.6402616,22.4726949 6.9887771,21.699537 L12.00271,18.8250573 L17.0166429,21.699537 L17.1506515,21.7715841 C18.4829447,22.4403279 19.5680516,21.5674348 19.1998875,20.0682859 L17.8937294,14.7526934 L22.2793686,11.1443161 L22.3984321,11.0405714 C23.4954951,10.0270601 23.0352205,8.72174778 21.479439,8.59636398 L15.6334685,8.12482574 L13.3880977,3.09014615 C12.7393731,1.6361626 11.2656405,1.63707337 10.6173223,3.09014615 L8.37094152,8.12482574 Z"></path></svg>
+                                    </div>
+                                    <div class="star">
+                                        <svg viewBox="0 0 24 24" class="widget-svg" style="width:12px;height:12px;transition:transform .2s ease-in-out"><path class="star" style="fill:#ffd400;transition:fill .2s ease-in-out" d="M8.37094152,8.12482574 L2.52598096,8.59636398 L2.36821881,8.6135218 C0.881583763,8.81867772 0.513822851,10.1467426 1.72605142,11.1443161 L6.11068071,14.7526934 L4.80553251,20.0682859 L4.77348322,20.2161997 C4.50052597,21.673724 5.6402616,22.4726949 6.9887771,21.699537 L12.00271,18.8250573 L17.0166429,21.699537 L17.1506515,21.7715841 C18.4829447,22.4403279 19.5680516,21.5674348 19.1998875,20.0682859 L17.8937294,14.7526934 L22.2793686,11.1443161 L22.3984321,11.0405714 C23.4954951,10.0270601 23.0352205,8.72174778 21.479439,8.59636398 L15.6334685,8.12482574 L13.3880977,3.09014615 C12.7393731,1.6361626 11.2656405,1.63707337 10.6173223,3.09014615 L8.37094152,8.12482574 Z"></path></svg>
+                                    </div>
+                                    <div class="star">
+                                        <svg viewBox="0 0 24 24" class="widget-svg" style="width:12px;height:12px;transition:transform .2s ease-in-out"><path class="star" style="fill:#ffd400;transition:fill .2s ease-in-out" d="M8.37094152,8.12482574 L2.52598096,8.59636398 L2.36821881,8.6135218 C0.881583763,8.81867772 0.513822851,10.1467426 1.72605142,11.1443161 L6.11068071,14.7526934 L4.80553251,20.0682859 L4.77348322,20.2161997 C4.50052597,21.673724 5.6402616,22.4726949 6.9887771,21.699537 L12.00271,18.8250573 L17.0166429,21.699537 L17.1506515,21.7715841 C18.4829447,22.4403279 19.5680516,21.5674348 19.1998875,20.0682859 L17.8937294,14.7526934 L22.2793686,11.1443161 L22.3984321,11.0405714 C23.4954951,10.0270601 23.0352205,8.72174778 21.479439,8.59636398 L15.6334685,8.12482574 L13.3880977,3.09014615 C12.7393731,1.6361626 11.2656405,1.63707337 10.6173223,3.09014615 L8.37094152,8.12482574 Z"></path></svg>
+                                    </div>
+                                    <div class="star">
+                                        <svg viewBox="0 0 24 24" class="widget-svg" style="width:12px;height:12px;transition:transform .2s ease-in-out"><path class="star" style="fill:#ffd400;transition:fill .2s ease-in-out" d="M8.37094152,8.12482574 L2.52598096,8.59636398 L2.36821881,8.6135218 C0.881583763,8.81867772 0.513822851,10.1467426 1.72605142,11.1443161 L6.11068071,14.7526934 L4.80553251,20.0682859 L4.77348322,20.2161997 C4.50052597,21.673724 5.6402616,22.4726949 6.9887771,21.699537 L12.00271,18.8250573 L17.0166429,21.699537 L17.1506515,21.7715841 C18.4829447,22.4403279 19.5680516,21.5674348 19.1998875,20.0682859 L17.8937294,14.7526934 L22.2793686,11.1443161 L22.3984321,11.0405714 C23.4954951,10.0270601 23.0352205,8.72174778 21.479439,8.59636398 L15.6334685,8.12482574 L13.3880977,3.09014615 C12.7393731,1.6361626 11.2656405,1.63707337 10.6173223,3.09014615 L8.37094152,8.12482574 Z"></path></svg>
+                                    </div>
+                                </div>
+                                <div class="horocountwrap">
+                                    <strong style="color:#212224">4.9</strong>
+                                    (95)
+                                </div>
+                            </a>
+                        </section>
+                    </div>
+                    <div class="smt-90">
+                        <section class="info2section">
+                            <div class="info2inner">
+                                <span class="price">59000원</span>
+                            </div>
+                            <ul class="info2check">
+                                <li class="checklistcss">
+                                    <span>상업적 이용 가능</span>
+                                    <span role="img" rotate="0" class="checkimg">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"></path></svg>
+                                    </span>
+                                </li>
+                                <li class="checklistcss">
+                                    <span>인쇄/배송</span>
+                                    <span role="img" rotate="0" class="checkimg">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"></path></svg>
+                                    </span>
+                                </li>
+                                <li class="checklistcss">
+                                    <span>고해상도 파일 제공</span>
+                                    <span role="img" rotate="0" class="checkimg">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"></path></svg>
+                                    </span>
+                                </li>
+                                <li class="checklistcss">
+                                    <span>원본파일 제공</span>
+                                    <span role="img" rotate="0" class="checkimg">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"></path></svg>
+                                    </span>
+                                </li>
+                                <li class="checklistcss">
+                                    <span>양면</span>
+                                    <span role="img" rotate="0" class="checkimg">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" class="css-7kp13n e181xm9y0"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M7.13322158,10.821143 C6.77457526,10.3822153 6.17602724,10.3624856 5.79632715,10.7770754 C5.41662707,11.1916652 5.39955962,11.8835778 5.75820594,12.3225054 L9.30027691,16.6574524 C9.66714471,17.1064419 10.2826916,17.1152317 10.6590418,16.6768551 L18.2255456,7.86331213 C18.5934618,7.43475954 18.5911847,6.74257073 18.2204597,6.31726515 C17.8497347,5.89195957 17.2509477,5.89459179 16.8830316,6.32314438 L10.004578,14.3352391 L7.13322158,10.821143 Z"></path></svg>
+                                    </span>
+                                </li>
+                                <li class="checklistcss">
+                                    <span>시안개수</span>
+                                    <span>2개</span>
+                                </li>
+                                <li class="checklistcss">
+                                    <span>작업일</span>
+                                    <span>2일</span>
+                                </li>
+                                <li class="checklistcss">
+                                    <span>수정횟수</span>
+                                    <span>5회</span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <!--<div class="smt-90">
+                        <section>
+                            <h2 class="portfoliohead">포트폴리오</h2>
+                            <div class="projectwrap">
+                                <span class="projectimg">
+                                    <img width="100%" height="100%" scr="https://d2v80xjmx68n4w.cloudfront.net/members/portfolios/YQyP71724896257.png" class="display-block">
+                                </span>
+                                <span class="projectimg">
+                                    <img width="100%" height="100%" scr="https://d2v80xjmx68n4w.cloudfront.net/members/portfolios/YQyP71724896257.png" class="display-block">
+                                </span>
+                                <span class="projectimg">
+                                    <img width="100%" height="100%" scr="https://d2v80xjmx68n4w.cloudfront.net/members/portfolios/YQyP71724896257.png" class="display-block">
+                                </span>
+                                <span class="projectimg">
+                                    <img width="100%" height="100%" scr="https://d2v80xjmx68n4w.cloudfront.net/members/portfolios/YQyP71724896257.png" class="display-block">
+                                </span>
+                                <span class="projectimg">
+                                    <img width="100%" height="100%" scr="https://d2v80xjmx68n4w.cloudfront.net/members/portfolios/YQyP71724896257.png" class="display-block">
+                                </span>
+                                <span class="projectimg">
+                                    <img width="100%" height="100%" scr="https://d2v80xjmx68n4w.cloudfront.net/members/portfolios/YQyP71724896257.png" class="display-block">
+                                </span>
+                                <span class="projectimg">
+                                    <img width="100%" height="100%" scr="https://d2v80xjmx68n4w.cloudfront.net/members/portfolios/YQyP71724896257.png" class="display-block">
+                                </span>
+                            </div>
+                        </section>
+                    </div>-->
+                    <div class="smt-90">
+                        <section>
+                            <h2 class="serviceinfotitle">서비스 설명</h2>
+                            <div class="serviceinfowrap">
+                                <p>
+                                    명함 서비스 오픈
+                                    신규 업체가 아닌, 기존에 로고와 명함을 진행하던 업체입니다.
+                                    명함 디자인과 인쇄만 원하시는 고객님들을 위해 신규 서비스를 열었습니다.
+                                    맞춤 로고 디자인을 전문으로 하여 하나하나 직접 구상 및 제작합니다. 공장형 제작이 아닌, 꼼꼼한 사전조사 이후 상담 -> 스케치 -> 제작  단계를 거쳐 맞춤 제작을 드립니다. 믿고 맡겨주세요.
+
+                                    명시된 작업일은 디자인 초안 전송 기간이며, 명함 배송 수령 기간이 아님을 명시드립니다.
+                                    평균 명함 디자인 제작부터 수령까지 수정포함 영업일 기준 5일~12일 걸리며, 수정횟수 등에 따라 달라질 수 있습니다.
+
+                                    로고 디자인 안심제
+                                    : 1차 메인 디자인 시안 제공후 맘에 드시지 않을경우 메인 디자인 1회 무료 변경 해드립니다.
+                                    메인 디자인 시안변경은 기존에 드린 디자인이 아예 바뀌어 새로 제작해야되는 경우 적용됩니다.
+                                    명함의 경우 컬러, 텍스트 정보 및 배치 변경은 디테일수정에 해당합니다. 명함은 디자인 변경이 더 많은 범위에서 가능합니다. 각종 로고 복구, 이미지 등 디자인 난이도가 있는 명함만 디자인 안심제에 한하여 제한될수있음을 안내드려요. 
+
+                                    캐릭터 및 일러스트 로고 안내
+                                    간단한 선화 일러스트(선만 있는 심플한 캐릭터 및 일러스트)도 가능합니다.
+                                    채색 및 복잡한 선화 캐릭터 및 일러스트 로고는 문의 부탁드러요!
+
+                                    - 폰트 라이센스 -
+                                    저작권에 문제없는 유료 / 무료 폰트를 사용하고 있습니다.
+                                    로고 및 명함 2차 이용 가능합니다.
+
+                                    - 저작권 - 
+                                    작업 이후 의뢰인 분에게 귀속됩니다.
+
+                                    - 원본 파일 - 
+                                    로고 및 명함 ai 원본 파일을 제공해드립니다.
+                                    jpg 이미지 파일도 함께 드립니다. 
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </main>
+            </section>
+            <aside>
+                <section class="underbtnsection">
+                    <div class="underbtnwrap">
+                        <button role="button" class="underbtncss">
+                            <span class="underbtntext">삭제</span>
+                        </button>
+                        <button role="button" class="underbtncss backgroundyellow">
+                            <span class="underbtntext">수정</span>
+                        </button>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </div>
+    <footer class="footerwrap">
+        <div class="footerinnerwrap">
+            <h5 class="footinfo">
+                (주)크몽은 통신판매중개자이며, 통신판매의 당사자가 아닙니다.
+                <br>
+                상품, 상품정보, 거래에 관한 의무와 책임은 판매회원에게 있습니다.
+            </h5>
+            <div class="footnavwrap">
+                <span class="footnavspan">
+                    <a href="/" class="footnava">사업자정보 확인</a>
+                </span>
+                <span class="footnavspan">|</span>
+                <span class="footnavspan">
+                    <a href="/" class="footnava">약관 및 정책</a>
+                </span>
+                <span class="footnavspan">|</span>
+                <span class="footnavspan">
+                    <a href="/" class="footnava2">개인정보처리방침</a>
+                </span>
+            </div>
+            <h6 class="footcompany">© 2024 kmong Inc. All rights reserved.</h6>
+        </div>
+    </footer>
+</body>
+</html>

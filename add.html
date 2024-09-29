@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="my.css">
+    <style>
+        html{
+            font-family: Metro Sans, sans-serif;
+        }
+        body{
+            margin: 0;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .submitbtncss{
+            background-color: #ffd400;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 0;
+            padding: 8px 12px;
+            color: #303441;
+        }
+        .cancelbtncss{
+            background-color: #e4e5ed;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 700;
+            border: 0;
+            padding: 8px 12px;
+            color: #727585;
+        }
+        .headercss{
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 12px 0;
+            height: 64px;
+            border: none;
+            background-color: #fff;
+        }
+        .dividtop{
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #f2f3f7;
+        }
+        .mainwrap{
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 12px 0;
+        }
+        .inputwrap{
+            border-radius: 6px;
+            border: 1px solid #f2f3f7;
+            padding: 4px 8px 4px 16px;
+            display: flex;
+            margin-top: 12px;
+        }
+        .labelwrap{
+            display: flex;
+            color: #303441;
+            font-size: 13px;
+            font-weight: 600;
+            min-width: 130px;
+            flex: none;
+            padding-top: 10px;
+            cursor: default;
+        }
+        .inputinnercss{
+            display: flex;
+            flex-grow: 1;
+            min-height: 40px;
+            align-items: center;
+        }
+        .inputcss{
+            width: 100%;
+            height: 100%;
+            color: #303441;
+            font-size: 13px;
+            background-color: transparent;
+            border-color: transparent;
+            line-height: normal;
+            padding: 0;
+            border: 0;
+        }
+        .selectcatcss{
+            display: flex;
+            padding: 4px 8px 4px 16px;
+            align-items: center;
+            flex-direction: row;
+            border-radius: 4px;
+            width: 100%;
+            font-size: 13px;
+            border-radius: 0;
+            border: none;
+            text-align: left;
+            line-height: 13px;
+            padding: 0;
+            color: #9a9ba7;
+            line-height: 13px;
+            background: transparent;
+        }
+        .background-colorgray{
+            border: 1px solid #fafafc;
+            border-radius: 4px;
+            background-color: #fafafc;
+        }
+        .divwith2{
+            display: flex;
+            flex: 0 0 auto;
+            width: 50%;
+        }
+        .nodivwith{
+            width: 100%;
+        }
+        .formwrap{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .divinputwrap{
+            padding: 0 6px;
+        }
+        .priceunit{
+            padding-top: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            position: absolute;
+            right: 24px;
+        }
+        .checkunitwrap{
+            margin-top: 8px;
+            width: 100%;
+            display: flex;
+        }
+        .checklistwrap{
+            border-radius: 6px;
+            border: 1px solid #f2f3f7;
+            padding: 4px 8px 4px 16px;
+            margin-top: 12px;
+            display: block;
+        }
+        .checkboxinnercss{
+            display: flex;
+            flex-grow: 1;
+            min-height: 40px;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .textareacss{
+            font-family: Metro Sans, sans-serif;
+            width: 100%;
+            height: 100%;
+            color: #303441;
+            font-size: 13px;
+            background-color: transparent;
+            border-color: transparent;
+            line-height: normal;
+            padding-top: 10px;
+            border: 0;
+        }
+        .underbtnwrap{
+            display: flex;
+            padding-top: 10px;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+        .inputnumcss{
+            height: 100%;
+            width: 100%;
+            color: #303441;
+            font-size: 13px;
+            background-color: transparent;
+            border-color: transparent;
+            line-height: normal;
+            margin-bottom: 2px;
+            margin-right: 23px;
+            padding: 0;
+            border: 0;
+            text-align: right;
+        }
+    </style>
+</head>
+<script>
+    const elements = [
+        {
+            input: document.getElementById("title"),
+            text: document.getElementById("titleSpan")
+        },
+        {
+            input: document.getElementById("category"),
+            text: document.getElementById("categorySpan")
+        },
+        {
+            input: document.getElementById("price"),
+            text: document.getElementById("priceSpan")
+        },
+        {
+            input: document.getElementById("workingdate"),
+            text: document.getElementById("workingSpan")
+        },
+        {
+            input: document.getElementById("editcount"),
+            text: document.getElementById("editSpan")
+        },
+        {
+            input: document.getElementById("prefilecount"),
+            text: document.getElementById("prefileSpan")
+        },
+        {
+            input: document.getElementById("mainImg"),
+            text: document.getElementById("mainimgSpan")
+        }
+    ];
+
+    elements.forEach(element => {
+        let temp;
+
+        element.input.addEventListener('invalid', function(event) {
+            event.preventDefault();
+            temp = element.text.style.color;
+            element.text.style.color = '#dc3545';
+        });
+
+        element.input.addEventListener('input', function() {
+            if(element.input.checkValidity()) {
+                element.text.style.color = temp;
+            }
+        });
+    });
+
+    function previewImage(event) {
+    const imagePreview = document.getElementById('imagePreview');
+    imagePreview.src = URL.createObjectURL(event.target.files[0]);
+    imagePreview.style.display = 'block';
+    }
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        const form = document.querySelector('form');
+        if (form.checkValidity()) {
+            alert("게시물이 추가됩니다");
+            form.submit();
+        }
+    }
+</script>
+<body>
+    <header heigh="44" class="headercss">
+        <a direction="left" class="h-26px w-85px cursor-pointer no-underline" href="/">
+            <svg height="100%" viewBox="0 0 85 26" width="85" xmlns="http://www.w3.org/2000/svg"><path d="M77.69 4.86c3.975 0 7.197 3.215 7.197 7.18l-.002.055h.002c.073 3.477.074 5.769.003 6.874-.108 1.659-.724 3.372-1.947 4.693A7.21 7.21 0 0 1 77.593 26c-2.724 0-4.998-.984-6.653-2.921l-.05-.059 3.226-2.684c.837.997 1.938 1.48 3.478 1.48.9 0 1.67-.358 2.259-.992.515-.556.817-1.263.832-1.813v-.443a7.186 7.186 0 0 1-2.995.65c-3.975 0-7.197-3.214-7.197-7.179 0-3.964 3.222-7.178 7.197-7.178zm-32.13-.225c4.131 0 7.48 3.34 7.48 7.46 0 4.121-3.349 7.462-7.48 7.462s-7.48-3.34-7.48-7.461c0-4.12 3.349-7.461 7.48-7.461zM4.533 0v10.354L8.623 5.2h5.309l-5.337 6.726 5.572 7.065h-4.98L4.534 13.42v5.572H0V0h4.533zM29.92 4.86a6.233 6.233 0 0 1 6.233 6.234v7.897H31.96v-7.908a2.04 2.04 0 0 0-4.074-.152l-.006.152v7.908h-4.193v-7.908a2.04 2.04 0 0 0-4.075-.152l-.005.152v7.908h-4.194v-7.897a6.233 6.233 0 0 1 10.371-4.662 6.201 6.201 0 0 1 4.136-1.571zm31.847 0a6.8 6.8 0 0 1 6.8 6.8v7.331h-4.194v-7.34a2.607 2.607 0 0 0-2.441-2.602l-.165-.006a2.607 2.607 0 0 0-2.602 2.442l-.005.165v7.34l-4.193.001v-7.33a6.8 6.8 0 0 1 6.8-6.8zM45.56 8.818a3.282 3.282 0 0 0-3.287 3.279 3.282 3.282 0 0 0 3.287 3.278 3.282 3.282 0 0 0 3.287-3.278 3.282 3.282 0 0 0-3.287-3.279zm32.13.226a3 3 0 0 0-3.003 2.996 3 3 0 0 0 3.003 2.996 3 3 0 0 0 3.003-2.996 3 3 0 0 0-3.003-2.996z" fill="#212224" fill-rule="evenodd"></path></svg>
+        </a>
+        </div>
+    </header>
+    <div class="dividtop"></div>
+    <main class="mainwrap">
+        <form class="formwrap" onsubmit="handleFormSubmit(event)">
+            <div class="divinputwrap nodivwith">
+                <div class="inputwrap nodivwith">
+                    <span id="titleSpan" class="labelwrap">제목</span>
+                    <div class="inputinnercss">
+                        <input id="title" type="text" placeholder="서비스를 잘 드러낼 수 있는 제목을 입력해주세요" required class="inputcss">
+                    </div>
+                </div>
+            </div>
+            <div class="divinputwrap divwith2">
+                <div class="inputwrap nodivwith">
+                    <span id="categorySpan" class="labelwrap">카테고리</span>
+                    <div class="inputinnercss background-colorgray">
+                        <select id="category" class="selectcatcss" required>
+                            <option value>선택해주세요</option>
+                            <option>명함</option>
+                            <option>로고</option>
+                            <option>캐릭터 디자인</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="divinputwrap divwith2">
+                <div class="inputwrap nodivwith">
+                    <span id="priceSpan" class="labelwrap">가격</span>
+                    <div class="inputinnercss">
+                        <input id="price" type="text" placeholder="입력해주세요" required class="inputcss">
+                    </div>
+                    <span class="priceunit">원</span>
+                </div>
+            </div>
+            <div class="divinputwrap nodivwith">
+                <div class="checklistwrap nodivwith">
+                    <div class="checkunitwrap">
+                        <span id="workingSpan" class="labelwrap">작업기간</span>
+                        <div class="inputinnercss">
+                            <input id="workingdate" type="number" required class="inputnumcss">
+                        </div>
+                        <span class="priceunit">일</span>
+                    </div>
+                    <div class="checkunitwrap">
+                        <span id="editSpan" class="labelwrap">수정횟수</span>
+                        <div class="inputinnercss">
+                            <input id="editcount" type="number" required class="inputnumcss">
+                        </div>
+                        <span class="priceunit">회</span>
+                    </div>
+                    <div class="checkunitwrap">
+                        <span id="prefileSpan" class="labelwrap">시안개수</span>
+                        <div class="inputinnercss">
+                            <input id="prefilecount" type="number" required class="inputnumcss">
+                        </div>
+                        <span class="priceunit">개</span>
+                    </div>
+                    <div class="checkunitwrap">
+                        <span class="labelwrap">양면</span>
+                        <div class="checkboxinnercss">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                    <div class="checkunitwrap">
+                        <span class="labelwrap">원본파일 제공</span>
+                        <div class="checkboxinnercss">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                    <div class="checkunitwrap">
+                        <span class="labelwrap">고행상도 파일 제공</span>
+                        <div class="checkboxinnercss">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                    <div class="checkunitwrap">
+                        <span class="labelwrap">인쇄/배송</span>
+                        <div class="checkboxinnercss">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                    <div class="checkunitwrap">
+                        <span class="labelwrap">상업적 이용 가능</span>
+                        <div class="checkboxinnercss">
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divinputwrap nodivwith">
+                <div class="inputwrap nodivwith">
+                    <span class="labelwrap">서비스 설명</span>
+                    <div class="inputinnercss">
+                        <textarea class="textareacss" rows="10">
+[서비스 소개]
+- 사용되는 이미지 및 폰트는 무료 라이선스를 사용합니다.
+- 최종 확정되어 발송된 제작물의 저작권은 의뢰인에게 귀속됩니다.
+- 제작된 작업물은 포트폴리오로 사용될 수 있습니다. 원치 않으실 경우 미리 말씀해 주세요.
+ 
+[구매 시 유의사항]
+- 인쇄물 실제 색상이 화면과 다소 차이가 있을 수 있으며 이로 인한 환불은 불가합니다.
+- 최종 시안 확인 후, 오타 등의 수정 사항은 책임지지 않습니다.
+- 인쇄가 진행되었을 경우, 수정 및 환불이 불가하니 꼼꼼히 확인해 주세요.
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="divinputwrap nodivwith">
+                <div class="checklistwrap nodivwith">
+                    <div class="checkunitwrap">
+                        <span id="mainimgSpan" class="labelwrap">메인이미지</span>
+                        <div class="inputinnercss">
+                            <input id="mainImg" type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)" required>
+                            <img id="imagePreview" src="" style="display: none; width: 200px; height: 200px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divinputwrap nodivwith">
+                <div class="underbtnwrap">
+                    <button type="button" class="cancelbtncss">취소</button>
+                    <button type="submit" class="submitbtncss">제출하기</button>
+                </div>
+            </div>
+        </form>
+    </main>
+    <footer class="footerwrap">
+        <div class="footerinnerwrap">
+            <h5 class="footinfo">
+                (주)크몽은 통신판매중개자이며, 통신판매의 당사자가 아닙니다.
+                <br>
+                상품, 상품정보, 거래에 관한 의무와 책임은 판매회원에게 있습니다.
+            </h5>
+            <div class="footnavwrap">
+                <span class="footnavspan">
+                    <a href="/" class="footnava">사업자정보 확인</a>
+                </span>
+                <span class="footnavspan">|</span>
+                <span class="footnavspan">
+                    <a href="/" class="footnava">약관 및 정책</a>
+                </span>
+                <span class="footnavspan">|</span>
+                <span class="footnavspan">
+                    <a href="/" class="footnava2">개인정보처리방침</a>
+                </span>
+            </div>
+            <h6 class="footcompany">© 2024 kmong Inc. All rights reserved.</h6>
+        </div>
+    </footer>
+</body>
+</html>
