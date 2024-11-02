@@ -1,0 +1,81 @@
+{
+  "service": [
+    {
+      "title": "명함디자인",
+      "stars": "4.5",
+      "counthoro": "50",
+      "price": "65000",
+      "id": "52c9"
+    },
+    {
+        "title": "로고 디자인",
+        "stars": "4.8",
+        "counthoro": "120",
+        "price": "85000",
+        "id": "a1b2"
+    },
+    {
+        "title": "웹사이트 제작",
+        "stars": "4.6",
+        "counthoro": "95",
+        "price": "300000",
+        "id": "b2c3"
+    },
+    {
+        "title": "포스터 디자인",
+        "stars": "4.7",
+        "counthoro": "80",
+        "price": "50000",
+        "id": "c3d4"
+    },
+    {
+        "title": "앱 UI 디자인",
+        "stars": "4.9",
+        "counthoro": "200",
+        "price": "120000",
+        "id": "d4e5"
+    },
+    {
+        "title": "캐릭터 일러스트",
+        "stars": "4.8",
+        "counthoro": "150",
+        "price": "70000",
+        "id": "e5f6"
+    },
+    {
+        "title": "명함 디자인",
+        "stars": "4.5",
+        "counthoro": "60",
+        "price": "45000",
+        "id": "f6g7"
+    },
+    {
+        "title": "SNS 콘텐츠 디자인",
+        "stars": "4.7",
+        "counthoro": "110",
+        "price": "55000",
+        "id": "g7h8"
+    },
+    {
+        "title": "브로슈어 제작",
+        "stars": "4.6",
+        "counthoro": "90",
+        "price": "95000",
+        "id": "h8i9"
+    },
+    {
+        "title": "유튜브 썸네일 디자인",
+        "stars": "4.9",
+        "counthoro": "180",
+        "price": "40000",
+        "id": "i9j0"
+    },
+    {
+        "title": "이모티콘 디자인",
+        "stars": "4.5",
+        "counthoro": "75",
+        "price": "65000",
+        "id": "j0k1"
+    }
+  ]
+}
